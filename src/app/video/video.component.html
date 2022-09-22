@@ -1,0 +1,27 @@
+<div *ngIf="!meeting_start">
+<input type="text" (input)="setName($event)"/>
+<button (click)="joinStream()">Join</button>
+</div>
+<div class="inside_call_view">
+    <div  class="remote-user-grid">
+
+        <div class="remote-user" *ngFor="let f of strameuser">
+            <div class="video-player" id="user-{{f.id}}"></div>
+            <p>{{f.name}}</p>
+        </div>
+
+    </div>
+    <div class="local-view">
+        <div class="video-player" id="user-{{UID}}"></div>
+        <p>{{name_participant}}</p>
+    </div>
+  
+
+
+
+<div class="btn-controls">
+    <button (click)="toggleMic()"><img [src]="!mic_on?'https://rc.jiomeet.jio.com/assets/img/revamp/mic_muted_2.svg':'https://rc.jiomeet.jio.com/assets/img/revamp/mic_unmuted_2.svg'"/></button>
+    <button (click)="toggleCamera()">Video</button>
+    <button (click)="lhandleUserLeft(UID)">Leave</button>
+</div>
+</div>

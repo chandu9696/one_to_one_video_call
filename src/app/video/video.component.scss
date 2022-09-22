@@ -1,0 +1,75 @@
+.inside_call_view
+{
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    .local-view
+    {
+    
+        position: absolute;
+        height: 212px;
+        width: 300px;
+        border: 1px solid black;
+        right: 2%;
+        bottom: 8%;
+        border-radius: 10px;
+            .video-player
+            {
+    
+                height: 100%;
+                width: 100%;
+                    video
+                    {
+                    overflow: hidden;
+                    border-radius: 10px;
+                    }
+            }
+            p
+            {
+                color:white;
+            }
+
+
+
+    }
+    .remote-user-grid{
+        display: grid;
+        min-height: 80vh;
+        grid-template-columns: repeat(3,1fr);
+        gap:10px;
+    .remote-user
+    {
+        height: 300px;
+        width: 100%;
+        background-color: black;
+        .video-player
+        {
+            height: 100%;
+            width: 100%;
+            video
+            {
+                border-radius: 10px;
+            }
+        }
+        p
+        {
+            color: white;
+        }
+
+    }
+    }
+    .btn-controls
+    {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    
+    gap:10px;
+    button
+    {
+
+        border: none;
+    }
+    }
+}
