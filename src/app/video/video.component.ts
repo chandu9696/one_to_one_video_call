@@ -13,8 +13,7 @@ export class VideoComponent implements OnInit {
   myDiv?: ElementRef<HTMLDivElement>;
 
   APP_ID = "c0d941ba24454354babe9b1e2711f824"
-  TOKEN = "007eJxTYCg83r7PsU9ZbObPatmaevlLhscF//es7zE9tSFqtQRT0hEFBgvzZFMTg2Rzo1RLE5M0M8sk0+SUZEvLNMvUREMjC8NEhf6g5PpARgaGFlMGRigE8VkYchMz8xgYABfzHeI="
-
+  TOKEN = "007eJxTYGhfJulk+Sg78Kb1ZPGsovsVfNphK7+ZMolLdTHfduR7nK7AYGGebGpikGxulGppYpJmZplkmpySbGmZZpmaaGhkYZgY8Cw4uSGQkWG/Cx8LIwMEgvgsDLmJmXkMDABq0xxR"
   CHANNEL = "main"
   UID:any
   remote_id:any
@@ -25,21 +24,23 @@ export class VideoComponent implements OnInit {
  mic_on:boolean=true;
  strameuser:any=[];
  name_participant!:string
-
+client:any
 
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
       // const data=this.http.get('http://localhost:5000/api/v1/product');
       // data.subscribe((data)=>{console.log(data)})
+      this.client= AgoraRTC.createClient({mode:'rtc', codec:'vp8'});
   }
+  
   async joincall()
   {
     console.log('joincall')
     this.meeting_start=true;
    
-    const client= AgoraRTC.createClient({mode:'rtc', codec:'vp8'});
-    client.on('user-published', async(user:any,mediaType:any)=>{
+    
+    this.client.on('user-published', async(user:any,mediaType:any)=>{
       
     // this.remoteUsers[user.uid] = user 
     //push userid and name to backend
@@ -69,7 +70,7 @@ export class VideoComponent implements OnInit {
     this.strameuser = [...new Map(this.strameuser.map((item:any )=> [item['id'], item])).values()]
     // this.strameuser=this.strameuser.filter((item:any)=>item.id!=this.UID)
     // this.strameuser = [...new Set(this.strameuser.map((item:any) => item))]; // [ 'A', 'B']
-     await client.subscribe(user, mediaType)
+     await this.client.subscribe(user, mediaType)
 
       if (mediaType === "video"){
       user.videoTrack.play('user-'+user.uid)
@@ -81,14 +82,14 @@ export class VideoComponent implements OnInit {
   }
    
     })
-    client.on('user-left', (user:any)=>this.lhandleUserLeft(user))
-    this.UID = await client.join(this.APP_ID, this.CHANNEL, this.TOKEN, null)
+    this.client.on('user-left', (user:any)=>this.lhandleUserLeft(user))
+    this.UID = await this.client.join(this.APP_ID, this.CHANNEL, this.TOKEN, null)
   //   this.http.post<any>('http://localhost:5000/api/v1/users', { "name": this.name_participant,"uid":this.UID}).subscribe(data => {
   //     console.warn(data)
   // })
     this.localTracks = await AgoraRTC.createMicrophoneAndCameraTracks() 
     this.localTracks[1].play(`user-${this.UID}`)
-    await client.publish([this.localTracks[0], this.localTracks[1]])
+    await this.client.publish([this.localTracks[0], this.localTracks[1]])
 }
 async joinStream() {
   await this.joincall()
@@ -98,6 +99,7 @@ async joinStream() {
   if (this.localTracks[0].muted){
       await this.localTracks[0].setMuted(false)
       this.mic_on=true;
+      
       console.log('one')
   }else{
       await this.localTracks[0].setMuted(true)
@@ -108,12 +110,18 @@ async joinStream() {
 
   async toggleCamera() {
   if(this.localTracks[1].muted){
-    
+ 
     await this.localTracks[1].setMuted(false)
+    await this.client.publish([this.localTracks[0], this.localTracks[1]])
+    // this.localTracks = await AgoraRTC.createMicrophoneAndCameraTracks() 
+    // this.localTracks[1].play(`user-${this.UID}`)
  
       
   }else{
       await this.localTracks[1].setMuted(true)
+      await this.client.unpublish([this.localTracks[0], this.localTracks[1]])
+      // this.localTracks[1].pause(`user-${this.UID}`)
+ 
       // await this.localTracks[1].close()
  
   }
