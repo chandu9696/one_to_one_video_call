@@ -1,18 +1,19 @@
 .inside_call_view
 {
     background-color: black;
-    height: 100vh;
+    overflow: auto;
     width: 100vw;
+    height: 100vh;
     color: white;
     .local-view
     {
     
         position: absolute;
-        height: 212px;
-        width: 300px;
+        height: 200px;
+        width: 200px;
         border: 1px solid black;
         right: 2%;
-        bottom: 8%;
+        top: 50%;
         border-radius: 10px;
             .video-player
             {
@@ -21,7 +22,7 @@
                 width: 100%;
                     video
                     {
-                    overflow: hidden;
+                    // overflow: hidden;
                     border-radius: 10px;
                     }
             }
