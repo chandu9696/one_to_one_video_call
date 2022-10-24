@@ -13,7 +13,7 @@ export class VideoComponent implements OnInit {
   myDiv?: ElementRef<HTMLDivElement>;
 
   APP_ID = "c0d941ba24454354babe9b1e2711f824"
-  TOKEN = "007eJxTYGhfJulk+Sg78Kb1ZPGsovsVfNphK7+ZMolLdTHfduR7nK7AYGGebGpikGxulGppYpJmZplkmpySbGmZZpmaaGhkYZgY8Cw4uSGQkWG/Cx8LIwMEgvgsDLmJmXkMDABq0xxR"
+  TOKEN = "007eJxTYMiu8fee4ndQWX7rU/0rRzZ3bdqa6Fpv9s348Aq5xAfqlWYKDBbmyaYmBsnmRqmWJiZpZpZJpskpyZaWaZapiYZGFoaJS7XDkhsCGRl2/NdmYmSAQBCfhSE3MTOPgQEARk4fZQ=="
   CHANNEL = "main"
   UID:any
   remote_id:any
