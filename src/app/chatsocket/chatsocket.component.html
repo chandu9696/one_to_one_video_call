@@ -1,0 +1,28 @@
+<div class="main_chat">
+    
+
+    <div class="class_display">
+    <div class="display_area">
+    <div *ngFor="let f of message_list" [class]='f.username==user_name?"self":"other"'>
+        
+        
+        <p class="message">{{f.message}}</p>
+        <div class="blow">
+        <p class="username">{{f.username}}</p>
+        <p class="time">{{f.time}}</p>
+    </div>
+    </div>
+    </div>
+    <div class="send_message"> 
+        <div>
+        <input type="text" (input)="setmessage($event)" placeholder="Type your message"/>
+    </div>
+    <div>
+        <button (click)="sendmessage()">Send</button>
+    </div>
+    </div>
+</div>
+
+
+</div>
+

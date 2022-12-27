@@ -6,7 +6,7 @@
     "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "heroku-postbuild":"ng build --configuration production",
+    "heroku-postbuild": "ng build --configuration production",
     "test": "ng test"
   },
   "private": true,
@@ -24,6 +24,7 @@
     "agora-rtc-sdk-ng": "^4.14.0",
     "express": "^4.18.2",
     "rxjs": "~7.5.0",
+    "socket.io-client": "^4.5.3",
     "tslib": "^2.3.0",
     "typescript": "~4.7.2",
     "zone.js": "~0.11.4"
@@ -42,7 +43,7 @@
     "typescript": "~4.7.2"
   },
   "engines": {
-    "npm":"8.11.0",
+    "npm": "8.11.0",
     "node": "16.15.1"
   }
 }

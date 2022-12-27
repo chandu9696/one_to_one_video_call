@@ -1,30 +1,156 @@
+
+
+.join_chat
+{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // gap:20px;
+    align-items: center;
+   
+    .chat_div
+    {
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+        justify-content: center;
+        align-items: center;
+    }
+    input
+    {
+        font-size: 1.3857142857rem;
+        font-family: sofia-pro;
+        font-style: normal;
+        font-weight:400;
+        outline: none;
+        border: 1px solid #d2daed!important;
+        border-radius: 8px!important;
+        padding-left: 1rem!important;
+        padding-right: 2rem!important;
+        color: #364464!important;
+        height: 39px;
+    }
+    button
+    {
+   
+        border-radius: 10px;
+        height: 39px;
+        background-color: blue;
+        border: 1px solid blue;
+        color: white;
+        margin: 5px;
+        .img_video
+        {
+            width: 20px;
+            height: 12px;
+        }
+    }
+    .preview_main
+    {
+        width: 50%;
+        height: 290px;
+        margin-left: 10px;
+        position: relative;
+       
+    .preview
+    {
+    
+        // position: absolute;
+        height: 100%;
+        width: 400px;
+        background-color: black;
+        // border: 1px solid black;
+        // right: 2px;
+        // top: 50%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        overflow: hidden;
+        .preview_div
+        {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .bottom_control
+    {
+        position: absolute;
+        width: 401px;
+        display: flex;
+        gap: 20px;
+        background-color: gray;
+        justify-content: center;
+        align-items: center;
+        bottom: -40px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    
+}
+    
+}
+
+.main_chat_inside{
+    background-color: black;
+    overflow: hidden!important;
+    // width: 50%;
+    height: 100vh;
+    color: white;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
 .inside_call_view
 {
     background-color: black;
-    overflow: auto;
-    width: 100vw;
+    // overflow: auto;
+    width: 70vw;
     height: 100vh;
     color: white;
+    position: relative;
+    // overflow-x: hidden;
     .local-view
     {
     
         position: absolute;
-        height: 200px;
+        height: 120px;
         width: 200px;
         border: 1px solid black;
-        right: 2%;
+        right: 2px;
         top: 50%;
+        // background-color: red;
         border-radius: 10px;
+        .reaction_show
+        {
+            position: absolute;
+            bottom:10px;
+            right: 2px;
+            .gif_div
+            {
+                // display: none;
+                width: 100px;
+                height: 80px;
+                img
+                {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+         
+        }
             .video-player
             {
     
                 height: 100%;
                 width: 100%;
-                    video
-                    {
-                    // overflow: hidden;
-                    border-radius: 10px;
-                    }
+                border-radius: 20px!important;
+                overflow: hidden;
+                    // video
+                    // {
+                    // // overflow: hidden;
+                  
+                    // }
             }
             p
             {
@@ -41,16 +167,48 @@
         gap:10px;
     .remote-user
     {
-        height: 300px;
+        height: 200px;
         width: 100%;
+        position: relative;
         background-color: black;
+        .reaction_show
+        {
+            position: absolute;
+            bottom:10px;
+            display: none;
+            right: 2px;
+            .gif_div1
+            {
+                // display: none;
+                width: 100px;
+                height: 80px;
+                img
+                {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .gif_div2
+            {
+                // display: none;
+                width: 100px;
+                height: 80px;
+                img
+                {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
         .video-player
         {
             height: 100%;
             width: 100%;
+            border-radius: 20px!important;
+            overflow: hidden;
             video
             {
-                border-radius: 10px;
+                border-radius: 20px;
             }
         }
         p
@@ -65,12 +223,188 @@
     margin-top: 10px;
     display: flex;
     justify-content: center;
-    
+    position: relative;
     gap:10px;
+    .reaction_wrap
+    {
+        position: relative;
+        height: 100%;
+    .reaction_icon
+    {
+        width: 200px;
+        display: flex;
+        height: 40px;
+        gap:20px;
+        justify-content: space-around;
+        background-color: white;
+        color: black;
+        position: absolute;
+        align-items: center;
+        border-radius: 20px;
+    top: -40px;
+    .smile
+    {
+        img
+        {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .sad
+    {
+        img
+        {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    }
+}
+    
     button
     {
 
         border: none;
     }
     }
+}
+.chat_c
+{
+    width: 30vw;
+    height: 100vh;
+}
+.inside_call_view1
+{
+    background-color: black;
+    // overflow: auto;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    position: relative;
+    // overflow-x: hidden;
+    .local-view
+    {
+    
+        position: absolute;
+        height: 120px;
+        width: 200px;
+        border: 1px solid black;
+        right: 2px;
+        top: 50%;
+        border-radius: 10px;
+        .reaction_show
+        {
+            position: absolute;
+            bottom:10px;
+            right: 2px;
+            .gif_div
+            {
+                width: 100px;
+                height: 80px;
+                img
+                {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+            .video-player
+            {
+    
+                height: 100%;
+                width: 100%;
+                border-radius: 20px!important;
+                overflow: hidden;
+                    // video
+                    // {
+                    // // overflow: hidden;
+                  
+                    // }
+            }
+            p
+            {
+                color:white;
+            }
+
+
+
+    }
+    .remote-user-grid{
+        display: grid;
+        min-height: 80vh;
+        grid-template-columns: repeat(3,1fr);
+        gap:10px;
+    .remote-user
+    {
+        height: 200px;
+        width: 100%;
+       
+        background-color: black;
+        .video-player
+        {
+            height: 100%;
+            width: 100%;
+            border-radius: 20px!important;
+            overflow: hidden;
+            video
+            {
+                border-radius: 20px;
+            }
+        }
+        p
+        {
+            color: white;
+        }
+
+    }
+    }
+    .btn-controls
+    {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    gap:10px;
+    .reaction_wrap
+    {
+        position: relative;
+        height: 100%;
+    .reaction_icon
+    {
+        width: 200px;
+        display: flex;
+        height: 40px;
+        gap:20px;
+        justify-content: space-around;
+        background-color: white;
+        color: black;
+        position: absolute;
+        align-items: center;
+        border-radius: 20px;
+    top: -40px;
+    .smile
+    {
+        img
+        {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .sad
+    {
+        img
+        {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    }
+}
+    button
+    {
+
+        border: none;
+    }
+    }
+}
 }
